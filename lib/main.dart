@@ -12,6 +12,12 @@ class AdvanceUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
+          ],
+        ),
         drawer: Drawer(
           child: ListView(
             children: [
@@ -21,11 +27,13 @@ class AdvanceUI extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Icon(Icons.logo_dev_outlined),
-                    TextButton.icon(onPressed:() {} , label: Text("close"),
+                    TextButton.icon(
+                      onPressed: () {},
+                      label: Text("close"),
                     )
                   ],
                 ),
-              )
+              ),
               ListTile(
                 leading: Icon(Icons.alarm),
                 title: Text("Recents"),
@@ -43,22 +51,19 @@ class AdvanceUI extends StatelessWidget {
           ),
         ),
         body: Center(
-          child: Column(
-            
-            children: [Image(
+          child: Column(children: [
+            Image(
               image: NetworkImage(
-                'https://i.natgeofe.com/k/9acd2bad-fb0e-43a8-935d-ec0aefc60c2f/monarch-butterfly-grass_3x2.jpg', // Replace with a valid direct image URL
+                'https://th.bing.com/th/id/OIP.1iuKbMAm4roP1prJs9KErQHaE8?rs=1&pid=ImgDetMain' // Replace with a valid direct image URL
               ),
-              
               // Ensures the image fits within the specified size
             ),
             CachedNetworkImage(
-            imageUrl: "http://via.placeholder.com/350x150",
-            placeholder: (context, url) => CircularProgressIndicator(),
-            errorWidget: (context, url, error) => Icon(Icons.error),
-     ),
-            ]
-          ),
+              imageUrl: "https://th.bing.com/th/id/OIP.GYfbe3hhi4zsZWpQz_gecgHaE8?rs=1&pid=ImgDetMain",
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+            ),
+          ]),
         ),
       ),
     );
